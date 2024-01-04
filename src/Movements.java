@@ -3,10 +3,10 @@
     @version 04.01.2024
  */
 public enum Movements {
-    UP,
-    DOWN,
-    RIGHT,
-    LEFT,
-    UP_RIGHT,
-    DOWN_LEFT
+    NORTH,
+    SOUTH,
+    EAST,
+    WEST,
+    NORTH_EAST,
+    SOUTH_WEST
 }

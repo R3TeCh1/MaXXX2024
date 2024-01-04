@@ -88,20 +88,20 @@ public class MaXx {
     private static boolean movePlayer(String choose,Player p) {
         switch (choose){
             case "N":
-                return setPlayerCoordination(p,Movements.UP);
+                return setPlayerCoordination(p,Movements.NORTH);
             case "S":
-                return setPlayerCoordination(p,Movements.DOWN);
+                return setPlayerCoordination(p,Movements.SOUTH);
             case "O":
-                return setPlayerCoordination(p,Movements.RIGHT);
+                return setPlayerCoordination(p,Movements.EAST);
             case "W":
-                return setPlayerCoordination(p,Movements.LEFT);
+                return setPlayerCoordination(p,Movements.WEST);
             case "NO":
                 if(p.getCharacter() == 'W')
-                    return setPlayerCoordination(p,Movements.UP_RIGHT);
+                    return setPlayerCoordination(p,Movements.NORTH_EAST);
                 break;
             case "SW":
                 if(p.getCharacter() == 'B')
-                    return setPlayerCoordination(p,Movements.DOWN_LEFT);
+                    return setPlayerCoordination(p,Movements.SOUTH_WEST);
                 break;
         }
         return false;
@@ -125,17 +125,17 @@ public class MaXx {
 
     public static boolean setPlayerCoordination(Player player, Movements m) {
         boolean playerMoved = false;
-            if (m == Movements.UP) {
+            if (m == Movements.NORTH) {
                 playerMoved = player.moveUp();
-            } else if (m == Movements.RIGHT) {
+            } else if (m == Movements.EAST) {
                 playerMoved = player.moveRight();
-            }else if (m == Movements.DOWN) {
+            }else if (m == Movements.SOUTH) {
                 playerMoved = player.moveDown();
-            } else if (m == Movements.LEFT) {
+            } else if (m == Movements.WEST) {
                 playerMoved = player.moveLeft();
-            } else if (m == Movements.UP_RIGHT) {
+            } else if (m == Movements.NORTH_EAST) {
                 playerMoved = player.moveUpRight();
-            } else if (m == Movements.DOWN_LEFT) {
+            } else if (m == Movements.SOUTH_WEST) {
                 playerMoved = player.moveDownLeft();
             }
         if(playerMoved){
