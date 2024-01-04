@@ -152,7 +152,7 @@ public class MaXx {
                 if (i == p1.i && j == p1.j) { //Wenn i/Zeile und j/Spalte mit Spielerkoordinaten gleich waren
                     System.out.printf("%-3s%-4s", "", ""); //printf: Ausgabe basierend auf dem angegebenen Format. d.h : beispielweisse ("%s","A") bedeutet anstatt %s muss es A stellen.
                     //%-3s bedeutet für jedem Zähler(Bruche) 3 mal space betrachten.
-                    //%-3s bedeutet anstatt Zähler drucken, muss es 3 space stellen, und dann 4 space neben es.
+                    //%-3s bedeutet anstatt Zähler drucken, muss es 3 space stellen, und dann 4 space neben es. d
                 } else if (i == p2.i && j == p2.j) {
                     System.out.printf("%-3s%-4s", "", "");
                 } else { //wenn else dann es printet Zähler
