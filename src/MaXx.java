@@ -14,46 +14,12 @@ public class MaXx {
     public static void main(String[] args) {
         initGameBoard();
         System.out.println("=======Wilkommen======");
-        System.out.println("Spielregeln:\n\tSpieler W -> N, S, O, W und NO" +
-                            "\n\tSpieler B -> N, S, O, W und SW");
+        System.out.println("Spielregeln:\n\tSpieler W -> N, S, O, W und SW" +
+                            "\n\tSpieler B -> N, S, O, W und NO");
         System.out.println("---------------------------------");
         System.out.println("Bitte beliebige Eingabe eingeben zum starten...");
         sc.nextLine();
-        boolean whitesTurn = true;
-        while (true) {
-            printGameBoard();
-            checkWin();
-            if (whitesTurn) {
-                while(true){
-                    System.out.print("W's Zug(N Hoch/ S Runter/ O Rechts/ W Links/ NO Rechts-Oben): ");
-                    String choose = sc.nextLine();
-                    choose = choose.toUpperCase();
-                    boolean validMove = movePlayer(choose,p1);
-                    if(!validMove){
-                        System.out.println("Ungültige Eingabe. Bitte erneut eingeben...");
-                    }else {
-                        whitesTurn = false;
-                        break;
-                    }
-                }
-            }
-            printGameBoard();
-            checkWin();
-            if (whitesTurn == false) {
-                while (true){
-                    System.out.print("B's Zug(N Hoch/ S Runter/ O Rechts/ W Links/ SW Links-Unten): ");
-                    String choose = sc.nextLine();
-                    choose = choose.toUpperCase();
-                    boolean validMove = movePlayer(choose,p2);
-                    if(!validMove){
-                        System.out.println("Ungültige Eingabe. Bitte erneut eingeben...");
-                    }else {
-                        whitesTurn = true;
-                        break;
-                    }
-                }
-            }
-        }
+        start();
     }
 
     public static void checkWin() {
@@ -102,19 +68,52 @@ public class MaXx {
         }
         return false;
     }
-//
-    public static void initGameBoard() {
-        Random r = new Random();
-        p1.i = r.nextInt(8);
-        p1.j = r.nextInt(8);
-        p2.i = r.nextInt(8);
-        p2.j = r.nextInt(8);
 
+    public static void initGameBoard() {
         p1.setScore(0);
         p2.setScore(0);
+
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 board[i][j] = new Rational();
+            }
+        }
+    }
+
+    public static void start(){
+        boolean whitesTurn = true;
+        while (true) {
+            printGameBoard();
+            checkWin();
+            if (whitesTurn) {
+                while(true){
+                    System.out.print("W's Zug(N Hoch/ S Runter/ O Rechts/ W Links/ NO Rechts-Oben): ");
+                    String choose = sc.nextLine();
+                    choose = choose.toUpperCase();
+                    boolean validMove = movePlayer(choose,p1);
+                    if(!validMove){
+                        System.out.println("Ungültige Eingabe. Bitte erneut eingeben...");
+                    }else {
+                        whitesTurn = false;
+                        break;
+                    }
+                }
+            }
+            printGameBoard();
+            checkWin();
+            if (whitesTurn == false) {
+                while (true){
+                    System.out.print("B's Zug(N Hoch/ S Runter/ O Rechts/ W Links/ SW Links-Unten): ");
+                    String choose = sc.nextLine();
+                    choose = choose.toUpperCase();
+                    boolean validMove = movePlayer(choose,p2);
+                    if(!validMove){
+                        System.out.println("Ungültige Eingabe. Bitte erneut eingeben...");
+                    }else {
+                        whitesTurn = true;
+                        break;
+                    }
+                }
             }
         }
     }

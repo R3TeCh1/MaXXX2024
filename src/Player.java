@@ -9,12 +9,12 @@ public class Player {
     public Player(char character) {
         this.character = character;
         if(character=='W'){
-            i = 7;
-            j = 0;
+            i = 4;
+            j = 4;
         } else if (character == 'B')
         {
-            i = 0;
-            j = 7;
+            i = 3;
+            j = 3;
         }
     }
 
