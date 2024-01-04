@@ -13,19 +13,16 @@ public class MaXx {
 
     public static void main(String[] args) {
         initGameBoard();
-        boolean whitesTurn = true;
         System.out.println("=======Wilkommen======");
         System.out.println("Spielregeln:\n\tSpieler W -> N, S, O, W und NO" +
                             "\n\tSpieler B -> N, S, O, W und SW");
         System.out.println("---------------------------------");
         System.out.println("Bitte beliebige Eingabe eingeben zum starten...");
         sc.nextLine();
+        boolean whitesTurn = true;
         while (true) {
             printGameBoard();
-            System.out.println("==============================");
-            System.out.println("Spieler W Punkte: " + p1.getScore());
-            System.out.println("Spieler B Punkte: " + p2.getScore());
-            System.out.println("==============================");
+            checkWin();
             if (whitesTurn) {
                 while(true){
                     System.out.print("W's Zug(N Hoch/ S Runter/ O Rechts/ W Links/ NO Rechts-Oben): ");
@@ -40,12 +37,8 @@ public class MaXx {
                     }
                 }
             }
-            checkWin();
             printGameBoard();
-            System.out.println("==============================");
-            System.out.println("Spieler W Punkte: " + p1.getScore());
-            System.out.println("Spieler B Punkte: " + p2.getScore());
-            System.out.println("==============================");
+            checkWin();
             if (whitesTurn == false) {
                 while (true){
                     System.out.print("B's Zug(N Hoch/ S Runter/ O Rechts/ W Links/ SW Links-Unten): ");
@@ -60,11 +53,14 @@ public class MaXx {
                     }
                 }
             }
-            checkWin();
         }
     }
 
     public static void checkWin() {
+        System.out.println("==============================");
+        System.out.println("Spieler W Punkte: " + p1.getScore());
+        System.out.println("Spieler B Punkte: " + p2.getScore());
+        System.out.println("==============================");
         Player winner = null;
         if (p1.getScore() > 53) {
             winner = p1;
