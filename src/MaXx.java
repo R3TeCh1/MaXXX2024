@@ -104,13 +104,13 @@ public class MaXx {
     }
 
 
-    public static Fraction generateFraction(){
+    public static Fraction generateFraction() {
         BigInteger numerator;
         BigInteger denominator;
 
         do {
-            numerator = BigInteger.valueOf(random.nextInt(989) + 10);
-            denominator = BigInteger.valueOf(random.nextInt(989) + 10);
+            numerator = BigInteger.valueOf(random.nextInt(999));
+            denominator = BigInteger.valueOf(random.nextInt(999));
         } while (numerator.divide(denominator).compareTo(BigInteger.ONE) <= 0);
 
         return new Fraction(numerator, denominator);
@@ -198,9 +198,9 @@ public class MaXx {
 
             for (int j = 0; j < 8; j++) {
                 if (i == p1.i && j == p1.j) {
-                    System.out.printf("%-3s%-4s", "⚪", "");
+                    System.out.printf("%-1s%-5s", "⚪", "");
                 } else if (i == p2.i && j == p2.j) {
-                    System.out.printf("%-3s%-4s", "⚫", "");
+                    System.out.printf("%-1s%-5s", "⚫", "");
                 } else {
                     if (Objects.equals(board[i][j], board[3][3]) || Objects.equals(board[i][j], board[4][4])){
                         System.out.printf("%-3s%-4s", "", "");
