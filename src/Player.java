@@ -18,6 +18,11 @@ public class Player {
         }
     }
 
+    public void setPosition(int i, int j) {
+        this.i = i;
+        this.j = j;
+    }
+
     public boolean moveUpRight(){
         if(i>0 && i<=7 && j>= 0 && j<7){
             i--;
@@ -78,6 +83,6 @@ public class Player {
     }
     @Override
     public String toString(){
-        return character+" hat gewonnen mit " + score + " Punkten.";
+        return character+" HAT GEWONNEN: " + score + " PUNKTE.";
     }
 }

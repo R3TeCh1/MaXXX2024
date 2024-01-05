@@ -89,6 +89,14 @@ public final class Fraction extends Number implements Comparable<Fraction> {
     return denominator;
   }
 
+  public void setNumerator(BigInteger numerator) {
+    this.numerator = numerator;
+  }
+
+  public void setDenominator(BigInteger denominator) {
+    this.denominator = denominator;
+  }
+
   public boolean isInteger() {
     return denominator.equals(BigInteger.ONE);
   }
