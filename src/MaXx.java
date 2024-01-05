@@ -18,8 +18,8 @@ public class MaXx {
         initGameBoard();
         System.out.println();
         System.out.println("❤❤❤Wilkommen❤❤❤");
-        System.out.println("Spielregeln:\n\tSpieler W -> N, S, O, W und SW" +
-                            "\n\tSpieler B -> N, S, O, W und NO");
+        System.out.println("Spielregeln:\n\tSpieler ⚪ -> N, S, O, W und SW" +
+                            "\n\tSpieler ⚫ -> N, S, O, W und NO");
         System.out.println("—————————————————————————————————————————————————");
         System.out.println("Bitte beliebige Eingabe eingeben zum starten...");
         sc.nextLine();
@@ -28,8 +28,8 @@ public class MaXx {
 
     public static void checkWin() {
         System.out.println("==============================");
-        System.out.println("Spieler W Punkte: " + p1.getScore());
-        System.out.println("Spieler B Punkte: " + p2.getScore());
+        System.out.println("Spieler ⚪ Punkte: " + p1.getScore() + " / 1");
+        System.out.println("Spieler ⚫ Punkte: " + p2.getScore() + " / 1");
         System.out.println("==============================");
         System.out.println();
         Player winner = null;
@@ -58,8 +58,8 @@ public class MaXx {
         p2.setPosition(3,3);
         System.out.println();
         System.out.println("❤❤❤Wilkommen❤❤❤");
-        System.out.println("Spielregeln:\n\tSpieler W -> N, S, O, W und SW" +
-            "\n\tSpieler B -> N, S, O, W und NO");
+        System.out.println("Spielregeln:\n\tSpieler ⚪ -> N, S, O, W und SW" +
+            "\n\tSpieler ⚫ -> N, S, O, W und NO");
         System.out.println("—————————————————————————————————————————————————");
         System.out.println("Bitte beliebige Eingabe eingeben zum starten...");
         sc.nextLine();
@@ -107,13 +107,15 @@ public class MaXx {
     public static Fraction generateFraction() {
         BigInteger numerator;
         BigInteger denominator;
+        Fraction fraction;
 
         do {
-            numerator = BigInteger.valueOf(random.nextInt(999));
-            denominator = BigInteger.valueOf(random.nextInt(999));
-        } while (numerator.divide(denominator).compareTo(BigInteger.ONE) <= 0);
+            numerator = BigInteger.valueOf(random.nextInt(500) + 500);
+            denominator = BigInteger.valueOf(random.nextInt(500) + 500);
+            fraction = new Fraction(numerator, denominator);
+        } while (fraction.doubleValue() <= 1 || fraction.doubleValue() >= 2);
 
-        return new Fraction(numerator, denominator);
+        return fraction;
     }
 
     public static void start(){
@@ -123,7 +125,7 @@ public class MaXx {
             checkWin();
             if (whitesTurn) {
                 while(true){
-                    System.out.print("W's Zug(N Hoch/ S Runter/ O Rechts/ W Links/ SW Rechts-Oben): ");
+                    System.out.print("⚪'s Zug(N Hoch/ S Runter/ O Rechts/ W Links/ SW Rechts-Oben): ");
                     String choose = sc.nextLine();
                     choose = choose.toUpperCase();
                     boolean validMove = movePlayer(choose,p1);
@@ -139,7 +141,7 @@ public class MaXx {
             checkWin();
             if (whitesTurn == false) {
                 while (true){
-                    System.out.print("B's Zug(N Hoch/ S Runter/ O Rechts/ W Links/ NO Links-Unten): ");
+                    System.out.print("⚫'s Zug(N Hoch/ S Runter/ O Rechts/ W Links/ NO Links-Unten): ");
                     String choose = sc.nextLine();
                     choose = choose.toUpperCase();
                     boolean validMove = movePlayer(choose,p2);
@@ -187,7 +189,7 @@ public class MaXx {
                 } else {
                     if (Objects.equals(board[i][j], board[3][3]) || Objects.equals(board[i][j], board[4][4])){
                         System.out.printf("%-3s%-4s", "", "");
-                    }else if(board[i][j].getNumerator().intValue() != -1){
+                    }else if(board[i][j].getNumerator().doubleValue() != -1){
                         System.out.printf("%-3s%-4s", board[i][j].getNumerator(), "");
                     } else{
                         System.out.printf("%-3s%-4s", "", "");
@@ -204,7 +206,7 @@ public class MaXx {
                 } else {
                     if (Objects.equals(board[i][j], board[3][3]) || Objects.equals(board[i][j], board[4][4])){
                         System.out.printf("%-3s%-4s", "", "");
-                    }else if(board[i][j].getNumerator().intValue() != -1 && board[i][j].getDenominator().intValue() != -1){
+                    }else if(board[i][j].getNumerator().doubleValue() != -1 && board[i][j].getDenominator().doubleValue() != -1){
                         System.out.printf("%-3s%-4s", "———", "");
                     } else{
                         System.out.printf("%-3s%-4s", "", "");
@@ -221,7 +223,7 @@ public class MaXx {
                 } else {
                     if (Objects.equals(board[i][j], board[3][3]) || Objects.equals(board[i][j], board[4][4])){
                         System.out.printf("%-3s%-4s", "", "");
-                    }else if(board[i][j].getDenominator().intValue() != -1){
+                    }else if(board[i][j].getDenominator().doubleValue() != -1){
                         System.out.printf("%-3s%-4s", board[i][j].getDenominator(), "");
                     } else{
                         System.out.printf("%-3s%-4s", "", "");
@@ -241,8 +243,8 @@ public class MaXx {
                         System.out.printf("%-3s%-4s", "", "");
                         System.out.printf("%-3s%-4s", "", "");
                         System.out.printf("%-3s%-4s", "", "");
-                    }else if(board[i][j].getNumerator().intValue() != -1 && board[i][j].getDenominator().intValue() != -1) {
-                        p1.addScore(board[i][j].intValue());
+                    }else if(board[i][j].getNumerator().doubleValue() != -1 && board[i][j].getDenominator().doubleValue() != -1) {
+                        p1.addScore(board[i][j].doubleValue());
                         board[i][j].setNumerator(BigInteger.valueOf(-1));
                         board[i][j].setDenominator(BigInteger.valueOf(-1));
                     }

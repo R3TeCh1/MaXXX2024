@@ -79,10 +79,14 @@ public class Player {
         return score;
     }
     public void addScore(double s){
-        score += s;
+        double a = s + s;
+        double b = a * a;
+        double roundedScore = Math.round(b * 100.0) / 100.0;
+        score =  (Math.round(score * 100.0) / 100.0) + roundedScore;
     }
+
     @Override
     public String toString(){
-        return character+" HAT GEWONNEN: " + score + " PUNKTE.";
+        return character + " HAT GEWONNEN: " + score + " PUNKTE.";
     }
 }
