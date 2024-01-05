@@ -8,10 +8,10 @@ public class Player {
     int i,j;
     public Player(char character) {
         this.character = character;
-        if(character=='W'){
+        if(character=='⚪'){
             i = 4;
             j = 4;
-        } else if (character == 'B')
+        } else if (character == '⚫')
         {
             i = 3;
             j = 3;
