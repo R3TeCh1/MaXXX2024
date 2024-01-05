@@ -1,6 +1,6 @@
 /*
     @author Kadir Erzurum, Nazanin Golalizadeh, Irina Samsonyan
-    @version 04.01.2024
+    @version 05.01.2024
  */
 public class Player {
     private char character;
@@ -79,7 +79,7 @@ public class Player {
         return score;
     }
     public void addScore(double s){
-        score+=s;
+        score += s;
     }
     @Override
     public String toString(){

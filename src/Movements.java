@@ -1,6 +1,6 @@
 /*
     @author Kadir Erzurum, Nazanin Golalizadeh, Irina Samsonyan
-    @version 04.01.2024
+    @version 05.01.2024
  */
 public enum Movements {
     NORTH,

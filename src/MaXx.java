@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 /*
     @author Kadir Erzurum, Nazanin Golalizadeh, Irina Samsonyan
-    @version 04.01.2024
+    @version 05.01.2024
  */
 public class MaXx {
     private static Fraction[][] board = new Fraction[8][8];
@@ -57,7 +57,7 @@ public class MaXx {
         p1.setPosition(4,4);
         p2.setPosition(3,3);
         System.out.println();
-        System.out.println("=======Wilkommen======");
+        System.out.println("❤❤❤Wilkommen❤❤❤");
         System.out.println("Spielregeln:\n\tSpieler W -> N, S, O, W und SW" +
             "\n\tSpieler B -> N, S, O, W und NO");
         System.out.println("—————————————————————————————————————————————————");
@@ -77,11 +77,11 @@ public class MaXx {
             case "W":
                 return setPlayerCoordination(p,Movements.WEST);
             case "NO":
-                if(p.getCharacter() == 'B')
+                if(p.getCharacter() == '⚫')
                     return setPlayerCoordination(p,Movements.NORTH_EAST);
                 break;
             case "SW":
-                if(p.getCharacter() == 'W')
+                if(p.getCharacter() == '⚪')
                     return setPlayerCoordination(p,Movements.SOUTH_WEST);
                 break;
         }
@@ -95,8 +95,6 @@ public class MaXx {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if ((i == 3 && j == 3) || (i == 4 && j == 4)) {
-                    System.out.printf("%-3s%-4s", "", "");
-                    System.out.printf("%-3s%-4s", "", "");
                     System.out.printf("%-3s%-4s", "", "");
                 } else {
                     board[i][j] = generateFraction();

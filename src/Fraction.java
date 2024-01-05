@@ -2,7 +2,7 @@ import java.math.BigInteger;
 
 /*
     @author Kadir Erzurum, Nazanin Golalizadeh, Irina Samsonyan
-    @version 04.01.2024
+    @version 05.01.2024
  */
 public final class Fraction extends Number implements Comparable<Fraction> {
   final static Fraction NaN = new Fraction(BigInteger.ZERO, BigInteger.ZERO);
@@ -77,6 +77,7 @@ public final class Fraction extends Number implements Comparable<Fraction> {
     if (r.getNumerator().equals(BigInteger.ZERO)) {
       return NaN;
     }
+
     return new Fraction(this.numerator.multiply(r.getDenominator()),
         this.denominator.multiply(r.getNumerator()));
   }
